@@ -21,13 +21,14 @@ const steps = [
     title: "Start Creating", 
     desc: "Download and start using your premium tools immediately." 
   },
-]
+];
 
 export default function Steps() {
   return (
     <section className="bg-slate-50 px-6 py-16 md:py-20">
       <div className="mx-auto max-w-6xl">
-        {/* Header - Exact match */}
+        
+        {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl font-extrabold text-slate-900">
             Get Started in 3 Steps
@@ -42,17 +43,22 @@ export default function Steps() {
           {steps.map((step, index) => (
             <div 
               key={step.num}
-              className={`rounded-2xl bg-white p-8 text-center shadow-soft transition hover:-translate-y-1 hover:shadow-lift fade-up`}
+              className="rounded-2xl bg-white p-8 text-center shadow-soft transition hover:-translate-y-1 hover:shadow-lift fade-up"
               style={{ animationDelay: `${index * 0.12}s` }}
             >
-              {/* Step Number Circle */}
+              
+              {/* Step Number */}
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-b from-[#4F39F6] to-[#2E2190] text-2xl font-bold text-white">
                 {step.num}
               </div>
 
-              {/* Icon */}
-              <div className="mb-3 text-4xl">
-                {step.icon}
+              {/* ✅ FIXED ICON (Image) */}
+              <div className="mb-4 flex justify-center">
+                <img 
+                  src={step.icon} 
+                  alt={step.title} 
+                  className="w-12 h-12 object-contain"
+                />
               </div>
 
               {/* Title */}
@@ -64,12 +70,11 @@ export default function Steps() {
               <p className="mt-3 text-sm text-slate-600 leading-relaxed">
                 {step.desc}
               </p>
+
             </div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
-
-
