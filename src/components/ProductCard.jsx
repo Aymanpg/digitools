@@ -19,11 +19,23 @@ export default function ProductCard({ product, addToCart }) {
         </span>
       )}
 
-      {/* Icon */}
+      {/* Icon / Image Container - WHITE BACKGROUND + smaller size */}
       <div className="mb-4 flex items-center justify-between">
-        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-b from-[#4F39F6] to-[#2E2190] text-2xl text-white">
-          {product.icon}
-        </div>
+        {product.icon.startsWith('/') ? (
+          // Real image from assets → smaller + white background
+          <div className="h-10 w-10 flex items-center justify-center rounded-2xl bg-white border border-slate-200 p-1">
+            <img 
+              src={product.icon} 
+              alt={product.name}
+              className="h-full w-full object-contain"
+            />
+          </div>
+        ) : (
+          // Fallback emoji (for Premium Stock Assets) → white background
+          <div className="h-10 w-10 flex items-center justify-center rounded-2xl bg-white border border-slate-200 text-3xl">
+            {product.icon}
+          </div>
+        )}
       </div>
 
       {/* Title */}
@@ -66,4 +78,3 @@ export default function ProductCard({ product, addToCart }) {
     </div>
   )
 }
-
