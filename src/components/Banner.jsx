@@ -2,6 +2,17 @@ import bannerImg from "../assets/banner.png";
 import PlayImg from "../assets/Play.png";
 
 export default function Banner() {
+
+  const scrollToProducts = () => {
+    const section = document.getElementById("products-section");
+    if (section) {
+      section.scrollIntoView({ 
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  };
+
   return (
     <section className="bg-white py-16 px-6">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
@@ -19,17 +30,20 @@ export default function Banner() {
 
           <p className="text-gray-500 mb-6">
             Access premium AI tools, design assets, templates, and productivity software — 
-            all in one place. Start creating faster today. Explore Products
+            all in one place. Start creating faster today.
           </p>
 
           <div className="flex gap-4">
             
-            {/* Explore Button */}
-            <button className="bg-gradient-to-b from-[#4F39F6] to-[#2E2190] text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition">
+            {/* Explore Products Button - Now scrolls to products section */}
+            <button 
+              onClick={scrollToProducts}
+              className="bg-gradient-to-b from-[#4F39F6] to-[#2E2190] text-white px-8 py-3.5 rounded-full font-semibold hover:opacity-90 transition text-lg"
+            >
               Explore Products
             </button>
 
-            {/* Watch Demo Button (Updated) */}
+            {/* Watch Demo Button */}
             <button className="border border-blue-600 text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-50 flex items-center gap-2 transition">
               <img 
                 src={PlayImg} 
